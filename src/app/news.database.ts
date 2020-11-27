@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
-import { Api } from './models';
+import { Api, Countries, News } from './models';
 export const normalizeSearchText = (q:string) =>
 {q.trim().toLowerCase()}
 
@@ -10,13 +10,19 @@ export class NewsDatabase extends Dexie {
   noApi:boolean;
 
   private api:Dexie.Table<Api,number>;
+  private countries: Dexie.Table<Countries>;
+  private news: Dexie.Table<News>;
 
   constructor() { 
     super('apidb')
     this.version(1).stores({
-      api:'++id,q'
+      api:'++id,q',
+      countries:'code,country',
+      news:'++id,title'
     })
     this.api = this.table('api')
+    this.countries = this.table('countries')
+    this.news = this.table('news')
 
   }
 

@@ -21,3 +21,14 @@ export interface SearchResult1 {
   content?: string;
  
 }
+
+
+export interface Countries {
+ code: string;
+ country: string;
+ flag: string;
+}
+
+export interface News {
+  title?:string;
+ }
