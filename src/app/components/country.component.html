@@ -1,1 +1,35 @@
-<p>country works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Countries</h2>
+    </div>
+    <div class="col">
+      <p class="right1">
+      <button type="button" class="btn btn-info" [routerLink]="['/main']">Settings</button>
+      </p>
+    </div>
+  </div>
+  
+  <!-- <div class="btn-group btn-block" role="group"> -->
+
+  <hr>
+  <div class="card" style="width: 38rem;">
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item" *ngFor="let result of results">
+          <a [routerLink]="['/news',result.alpha2Code,result.name]"> 
+          <div class="row">
+            <div class="col">
+              {{result.name}}
+              - {{result.alpha2Code}}
+            </div>
+            <div class="col right">
+              <img src="{{result.flag}}" alt="" style="height: 30px; width: 40px;" class="right1" >
+            </div>
+           </div>
+            </a>
+        </li>
+      </ul>
+  </div>
+</div>

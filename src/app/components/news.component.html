@@ -1,1 +1,57 @@
-<p>news works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>News from {{country}} </h2>
+    </div>
+    <div class="col">
+      <p class="right1">
+      <button type="button" class="btn btn-info" [routerLink]="['/country']">Back</button>
+      </p>
+    </div>
+  </div>
+  <hr>
+  <!-- <div class="container">
+    <div class="row" *ngFor="let result of results">
+      <div class="col-4" >{{result}</div>
+      <div class="col-8">col-8</div>
+    </div>
+
+  </div> -->
+
+  <div class="card" >
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item" *ngFor="let r of searchResults">
+          <div class="row">
+          <div class="col-4">
+            <img style="width:250px; height:200px;" [src]="r.image" alt="">
+           <p><small>Source {{r.sourceName}}</small><br>
+            <small><a [href]="r.url" target="_blank">View Original Article</a></small>
+          </p>
+          </div>
+          <div class="col-8">
+            <a [href]="r.url" target="_blank"><h3>{{r.title}}</h3></a>
+            <p>
+              {{r.desc}}
+            </p>
+            <p>
+              Author: {{r.author}} <br>
+              Published on: {{r.published | date:"short"}}
+            </p>
+            <hr>
+            <small>{{r.content}}</small><br>
+            
+          </div>
+        </div>
+           
+        
+           
+           
+
+
+           <img src="{{r.urlToImage}}" alt="">
+           
+        </li>
+      </ul>
+  </div>
+</div>
