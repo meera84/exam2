@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchResult, SearchResult1 } from '../models';
 
@@ -11,6 +11,7 @@ import { SearchResult, SearchResult1 } from '../models';
 
 export class NewsComponent implements OnInit {
 
+  
   code ="";
   country="";
   apikey="0659de3cb3c842c78bce3a6785bcae5e";
@@ -49,7 +50,9 @@ export class NewsComponent implements OnInit {
       
     })
   
-  
+  }
+  saveArticle(){
+      alert('i got no time and exam is very very difficult')
   }
 
 }

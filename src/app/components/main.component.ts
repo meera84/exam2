@@ -13,10 +13,15 @@ export class MainComponent implements OnInit {
 
   form:FormGroup
   searches: Api[]=[]
+  apikey1:string=""
 
   constructor(private fb: FormBuilder, private apidb:NewsDatabase, private router:Router) { }
 
   ngOnInit(): void {
+    //also didnt have time to do the routing if apikey present.
+
+    this.goroute()
+  
     this.form = this.fb.group({
       q:this.fb.control("",[Validators.required])
     })
@@ -47,6 +52,17 @@ export class MainComponent implements OnInit {
     
     //window.location.reload()
 
+  }
+
+  
+  async goroute() {
+    let apiKey1 = await this.apidb.apiRouting()
+    console.log(apiKey1.length)
+    
+    if (apiKey1.length > 0) {
+      this.router.navigate(['/countries']);
+    }
+    
   }
 
 }

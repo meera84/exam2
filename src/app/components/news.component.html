@@ -24,10 +24,11 @@
         <li class="list-group-item" *ngFor="let r of searchResults">
           <div class="row">
           <div class="col-4">
-            <img style="width:250px; height:200px;" [src]="r.image" alt="">
+            <img style="width:250px; height:150px;" [src]="r.image" alt="">
            <p><small>Source {{r.sourceName}}</small><br>
             <small><a [href]="r.url" target="_blank">View Original Article</a></small>
           </p>
+          <button type="button" class="btn btn-warning" (click)="saveArticle()">Save Article</button>
           </div>
           <div class="col-8">
             <a [href]="r.url" target="_blank"><h3>{{r.title}}</h3></a>

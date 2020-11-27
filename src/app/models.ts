@@ -24,9 +24,9 @@ export interface SearchResult1 {
 
 
 export interface Countries {
- code: string;
- country: string;
- flag: string;
+ code: any;
+ country: any;
+ flag: any;
 }
 
 export interface News {

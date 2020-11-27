@@ -26,6 +26,11 @@ export class NewsDatabase extends Dexie {
 
   }
 
+  async apiRouting(): Promise<any> {
+    const apiKeys = await this.api.toArray()
+    return apiKeys
+}
+
   async saveAPI(s:Api):Promise<any>{
     const resultCount = await this.api
     .where('q').equals(s.q)
@@ -67,11 +72,20 @@ export class NewsDatabase extends Dexie {
         }
       
       }
+    
   
+    async saveCountries(countries: Countries[]):Promise<any>{
+        
+        await this.countries.bulkAdd(countries)
+        return console.log(countries)
+      
 
+    }
 
-
+    async gotCountries(): Promise<any> {
+      const gotCountry = await this.countries.toArray()
+      return gotCountry
   }
 
-  
+}
 
